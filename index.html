@@ -610,7 +610,7 @@
     function startQuiz() {
       const selectedUnit = getCurrentUnit();
       if (selectedUnit.type === "essay") {
-        workingQuestions = selectedUnit.questions;
+        workingQuestions = selectedUnit.questions.slice(10).concat(selectedUnit.questions.slice(0, 10));
       } else {
         workingQuestions = shuffleArray(selectedUnit.questions).map(prepareQuestion);
       }
